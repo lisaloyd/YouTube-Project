@@ -229,7 +229,7 @@
 			"name": "Comments",
 			"item": [
 				{
-					"name": "Get_All_Comments",
+					"name": "Get_Video_Comments",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -266,7 +266,31 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Create_Comment",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Comment",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Create_Reply",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Comment_Replies",
 					"request": {
 						"method": "GET",
 						"header": []
