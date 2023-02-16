@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "063aecb0-43a9-4fc5-87ab-e5a80389f920",
+		"_postman_id": "a72ff7ab-3d25-4899-879d-b877607d86c6",
 		"name": "DRF_JWT_Backend",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "25206930"
+		"_exporter_id": "25207145"
 	},
 	"item": [
 		{
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"dantheman\",\r\n    \"password\": \"password1@\",\r\n    \"email\": \"dan@devcodecamp.com\",\r\n    \"first_name\": \"Daniel\",\r\n    \"last_name\": \"Tulpa\"\r\n}",
+							"raw": "{\r\n    \"username\": \"joliveira\",\r\n    \"password\": \"joliveira90\",\r\n    \"email\": \"joliveira@yahoo.com\",\r\n    \"first_name\": \"Daniel\",\r\n    \"last_name\": \"Tulpa\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -50,7 +50,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"dantheman\",\r\n    \"password\": \"password1@\"\r\n}",
+							"raw": "{\r\n    \"username\": \"joliveira\",\r\n    \"password\": \"joliveira90\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -246,7 +246,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/comments/all/",
+							"raw": "http://127.0.0.1:8000/api/comments/videos/aaaa/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -258,7 +258,8 @@
 							"path": [
 								"api",
 								"comments",
-								"all",
+								"videos",
+								"aaaa",
 								""
 							]
 						}
@@ -269,10 +270,16 @@
 					"name": "Create_Comment",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3MzYzOTYxLCJpYXQiOjE2NzY0OTk5NjEsImp0aSI6IjdhNWYyMzBlNTA4YzQzYTFhNDg2ODJmYjYyYzMwNGIyIiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJqb2xpdmVpcmEiLCJmaXJzdF9uYW1lIjoiRGFuaWVsIn0.7RlbIF2N-k5Qi_NkIF43wyOd1UYrfMG-SUkGuuPipsY",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"video_id\": \"AAAA\",\r\n    \"text\": \"Testing\",\r\n    \"\"\r\n}",
+							"raw": "{\r\n    \"video_id\": \"AAAA\",\r\n    \"text\": \"Testing\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -280,7 +287,20 @@
 							}
 						},
 						"url": {
-							"raw": ""
+							"raw": "http://127.0.0.1:8000/api/comments/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								""
+							]
 						}
 					},
 					"response": []
@@ -289,31 +309,38 @@
 					"name": "Update_Comment",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3MzYzOTYxLCJpYXQiOjE2NzY0OTk5NjEsImp0aSI6IjdhNWYyMzBlNTA4YzQzYTFhNDg2ODJmYjYyYzMwNGIyIiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJqb2xpdmVpcmEiLCJmaXJzdF9uYW1lIjoiRGFuaWVsIn0.7RlbIF2N-k5Qi_NkIF43wyOd1UYrfMG-SUkGuuPipsY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"video_id\": \"AAAA\",\r\n    \"text\": \"test\",\r\n    \"likes\": \"10\",\r\n    \"dislikes\": \"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create_Reply",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get_Comment_Replies",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
+							"raw": "http://127.0.0.1:8000/api/comments/2/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"2",
+								""
+							]
 						}
 					},
 					"response": []
