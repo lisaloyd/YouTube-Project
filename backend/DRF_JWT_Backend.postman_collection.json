@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a72ff7ab-3d25-4899-879d-b877607d86c6",
+		"_postman_id": "0612e353-a6e0-4fa7-bcfd-e543503edb1f",
 		"name": "DRF_JWT_Backend",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "25207145"
+		"_exporter_id": "25206930"
 	},
 	"item": [
 		{
@@ -279,7 +279,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"video_id\": \"AAAA\",\r\n    \"text\": \"Testing\"\r\n}",
+							"raw": "{\r\n    \"video_id\": \"ABAB\",\r\n    \"text\": \"Testing456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -318,7 +318,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"video_id\": \"AAAA\",\r\n    \"text\": \"test\",\r\n    \"likes\": \"10\",\r\n    \"dislikes\": \"3\"\r\n}",
+							"raw": "{\r\n    \"video_id\": \"AAAA\",\r\n    \"text\": \"testing3\",\r\n    \"likes\": \"0\",\r\n    \"dislikes\": \"3\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -407,7 +407,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"text\": \"Testing replies part 2\"\r\n}",
+							"raw": "{\r\n    \"text\": \"Testing replies part 22\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
