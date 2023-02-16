@@ -9,7 +9,7 @@ from .serializers import ReplySerializer
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
-def user_replies(request, video_id, comment_id):
+def user_replies(request, comment_id):
     print(
         'User ', f"{request.user.id} {request.user.email} {request.user.username}"
     )
