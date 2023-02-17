@@ -7,15 +7,15 @@ import axios from 'axios';
 
 const SearchPage = ({}) => {
     
-    // async function getSearchResults{searchTerm} {
-    //     const response = await axios.get{
-    //             `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${searchTerm}&key=AIzaSyDhid3_YGqPg3ipv8CKkZMgLNumzoxp7y4`
-    //     };
-    // }
+    async function getSearchResults(searchTerm) {
+        const response = await axios.get(
+                `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${searchTerm}&key=AIzaSyDhid3_YGqPg3ipv8CKkZMgLNumzoxp7y4`
+        );
+    }
 
-    // useEffect(() => {
-    //     getSearchResults('')
-    // }, [])
+    useEffect(() => {
+        getSearchResults('')
+    }, [])
 
     return ( 
         <div>

@@ -45,7 +45,7 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/search" element={<SearchPage />} />
+        <Route path="/search/: searchTerm" element={<SearchPage />} />
         <Route path="/video" element={<VideoPage />} />
         {/* <Route path="/search" element={<SearchBar />} /> */}
       </Routes>
