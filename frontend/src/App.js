@@ -15,6 +15,7 @@ import VideoPage from "./components/VideoPage/VideoPage"
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import axios from "axios";
 
 function App() {
   return (
