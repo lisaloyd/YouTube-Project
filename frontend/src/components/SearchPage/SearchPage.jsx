@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import axios from "axios";
+import VideoThumbnail from "../VideoThumbnail/VideoThumbnail";
 
 
 const SearchPage = ({}) => {
@@ -26,16 +27,7 @@ const SearchPage = ({}) => {
       <SearchBar getSearchResults={getSearchResults} />
       <div>
         {searchResults.map((video) => (
-          <div key={video.id}>
-            <Link to={`/video/${video.id}`}>
-              <img
-                src={video.snippet.thumbnails.high.url}
-                alt={video.snippet.title}
-              />
-              <h3>{video.snippet.title}</h3>
-              <p>{video.snippet.description}</p>
-            </Link>
-          </div>
+       <VideoThumbnail video={video}/>  
         ))}
       </div>
     </div>
