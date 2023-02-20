@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import axios from "axios";
 import RelatedVideos from "../RelatedVideos/RelatedVideos";
+import Comment from "../Comment/Comment";
 
 const VideoPage = ({ getSearchResults }) => {
   const { videoId } = useParams();
@@ -41,6 +42,7 @@ const VideoPage = ({ getSearchResults }) => {
           </div>
         </div>
       )}
+      <Comment videoId={videoId}/>
       <RelatedVideos videoId={videoId} />
     </div>
   );
