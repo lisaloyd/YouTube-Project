@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const SearchBar = ({ getSearchResults }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    getSearchResults(searchTerm);
+    if (typeof getSearchResults === "function") {
+      getSearchResults(searchTerm);
+    }
   };
 
   return (
@@ -16,7 +19,7 @@ const SearchBar = ({ getSearchResults }) => {
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
       />
-      <button>Search</button>
+      <button to="/my-search">Search</button>
     </form>
   );
 };
