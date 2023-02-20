@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import axios from "axios";
+import RelatedVideos from "../RelatedVideos/RelatedVideos";
 
 const VideoPage = ({ getSearchResults }) => {
   const { videoId } = useParams();
@@ -19,7 +20,7 @@ const VideoPage = ({ getSearchResults }) => {
       }
     };
     fetchVideoDetails();
-  }, []);
+  }, [videoId]);
 
   console.log(videoDetails);
   return (
@@ -40,6 +41,7 @@ const VideoPage = ({ getSearchResults }) => {
           </div>
         </div>
       )}
+      <RelatedVideos videoId={videoId} />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import axios from "axios";
 import VideoThumbnail from "../VideoThumbnail/VideoThumbnail";
+import RelatedVideos from "../RelatedVideos/RelatedVideos";
 
 
 const SearchPage = ({}) => {
@@ -29,6 +30,7 @@ const SearchPage = ({}) => {
         {searchResults.map((video) => (
        <VideoThumbnail video={video}/>  
         ))}
+    
       </div>
     </div>
   );
