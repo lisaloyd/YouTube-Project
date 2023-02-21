@@ -1,34 +1,43 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import CommentForm from "../CommentForm/CommentForm";
-import CommentList from "../CommentList/CommentList";
+import "./Comment.css";
 import useAuth from "../../hooks/useAuth";
 
-const Comment = ({ videoId, refreshComments }) => {
-    const {config} = useAuth();
-    const [comments, setComments] = useState([]);
+const Comment = ({ comment, refreshComments }) => {
+  const { config } = useAuth();
 
-    useEffect(() => {
-        const refreshComments = async () => {
-            try {
-                let response = await axios.get(`http://127.0.0.1:8000/api/comments/videos/${videoId}/`, config);
-                console.log(response)
-                setComments(response.data);
-            } catch (error) {
-                console.log(error.response.data);
-            }
-        };
-        refreshComments();
-    }, []);
+  async function handleLike() {
+    comment.likes++;
 
+    updateComment();
+  }
 
+  async function handleDislike() {
+    comment.dislikes++;
+    updateComment();
+  }
 
-    return ( 
-        <div>
-            <CommentForm videoId={videoId} refreshComments={refreshComments} />
-            <CommentList comments={comments} />
-        </div>
-     );
-}
- 
+  async function updateComment() {
+    await axios.put(
+      `http://127.0.0.1:8000/api/comments/${comment.id}/`,
+      comment,
+      config
+    );
+    await refreshComments();
+  }
+
+  return (
+    <div className="comment" key={comment.id}>
+      <div>
+        <h2>User: {comment.username}</h2>
+        <p>{comment.text}</p>
+      </div>
+      <div>
+        <button onClick={handleLike}>Like ({comment.likes})</button>
+        <button onClick={handleDislike}>Dislike ({comment.dislikes})</button>
+      </div>
+    </div>
+  );
+};
+
 export default Comment;

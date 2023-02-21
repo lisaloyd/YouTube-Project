@@ -1,14 +1,17 @@
+import React, { useState, useEffect } from "react";
+import Comment from "../Comment/Comment";
 
-const CommentList = ({ comments }) => {
-    return ( 
-        <div>
-            {comments.map((comment) => (
-                <div key={comment.id}>
-                    <p>{comment.user && comment.user.username}: {comment.text}</p>
-                </div>
-            ))}
-        </div>
-     );
+const CommentList = ({ comments, refreshComments }) => {
+  useEffect(() => {
+    refreshComments();
+  }, []);
+  return (
+    <div>
+      {comments.map((comment) => (
+        <Comment comment={comment} refreshComments={refreshComments}/>
+      ))}
+    </div>
+  );
 };
- 
+
 export default CommentList;

@@ -4,10 +4,16 @@ import SearchBar from "../SearchBar/SearchBar";
 import axios from "axios";
 import RelatedVideos from "../RelatedVideos/RelatedVideos";
 import Comment from "../Comment/Comment";
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
+import useAuth from "../../hooks/useAuth";
+import CommentList from "../CommentList/CommentList";
+import CommentForm from "../CommentForm/CommentForm";
 
 const VideoPage = ({ getSearchResults }) => {
+  const {config} = useAuth();
   const { videoId } = useParams();
-  const [videoDetails, setVideoDetails] = useState();
+  const [videoDetails, setVideoDetails] = useState(null);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     const fetchVideoDetails = async () => {
@@ -23,26 +29,22 @@ const VideoPage = ({ getSearchResults }) => {
     fetchVideoDetails();
   }, [videoId]);
 
-  console.log(videoDetails);
+  const refreshComments = async () => {
+    try {
+        let response = await axios.get(`http://127.0.0.1:8000/api/comments/videos/${videoId}/`, config);
+        console.log(response)
+        setComments(response.data);
+    } catch (error) {
+        console.log(error.response.data);
+    }
+};
+
+
   return (
     <div>
-      {/* <Link to="/my-search">
-        <SearchBar getSearchResults={getSearchResults} />
-      </Link> */}
-      {videoDetails && (
-        <div>
-          <iframe
-            width="400"
-            height="315"
-            src={`https://www.youtube.com/embed/${videoId}`}
-          ></iframe>
-          <div>
-            <h2>{videoDetails.title}</h2>
-            <p>{videoDetails.description}</p>
-          </div>
-        </div>
-      )}
-      <Comment videoId={videoId}/>
+      <VideoPlayer videoDetails={videoDetails} videoId={videoId} />
+      <CommentForm videoId={videoId} refreshComments={refreshComments} />
+      <CommentList comments={comments} refreshComments={refreshComments} />
       <RelatedVideos videoId={videoId} />
     </div>
   );

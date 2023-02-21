@@ -3,7 +3,7 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
 const CommentForm = ({ videoId, refreshComments }) => {
-  const { config, user } = useAuth();
+  const { config } = useAuth();
   const [commentText, setCommentText] = useState("");
 
     async function createComment(newComment) {
@@ -13,16 +13,14 @@ const CommentForm = ({ videoId, refreshComments }) => {
             config
         );
         if (response.status === 201) {
-            // await refreshComments();
+            await refreshComments();
             console.log(response);
         }
     }
 
     function handleSubmit(event)  {
         event.preventDefault();
-        alert(`New Comment Added!`);
         let newComment = {
-            username: user,
             video_id: videoId,
             text: commentText,
         };
