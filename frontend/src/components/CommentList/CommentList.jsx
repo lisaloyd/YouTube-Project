@@ -7,9 +7,12 @@ const CommentList = ({ comments, refreshComments }) => {
   }, []);
   return (
     <div>
-      {comments.map((comment) => (
-        <Comment comment={comment} refreshComments={refreshComments}/>
-      ))}
+      
+      <div>
+        {comments.map((comment) => (
+          <Comment comment={comment} refreshComments={refreshComments} />
+        ))}
+      </div>
     </div>
   );
 };

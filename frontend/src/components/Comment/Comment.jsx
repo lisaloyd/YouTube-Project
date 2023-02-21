@@ -33,8 +33,18 @@ const Comment = ({ comment, refreshComments }) => {
         <p>{comment.text}</p>
       </div>
       <div>
-        <button onClick={handleLike}>Like ({comment.likes})</button>
-        <button onClick={handleDislike}>Dislike ({comment.dislikes})</button>
+        <button
+          onClick={handleLike}
+          style={{ backgroundColor: "green", color: "white" }}
+        >
+          Like ({comment.likes})
+        </button>
+        <button
+          onClick={handleDislike}
+          style={{ backgroundColor: "red", color: "white" }}
+        >
+          Dislike ({comment.dislikes})
+        </button>
       </div>
     </div>
   );

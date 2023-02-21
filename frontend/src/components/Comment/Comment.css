@@ -2,4 +2,14 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    border: 2px solid black;
 }
+
+.likes{
+    background-color: green;
+}
+
+.dislikes{
+    background-color: red;
+}
+

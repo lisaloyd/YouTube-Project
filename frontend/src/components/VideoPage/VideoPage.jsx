@@ -10,7 +10,7 @@ import CommentList from "../CommentList/CommentList";
 import CommentForm from "../CommentForm/CommentForm";
 
 const VideoPage = ({ getSearchResults }) => {
-  const {config} = useAuth();
+  const { config } = useAuth();
   const { videoId } = useParams();
   const [videoDetails, setVideoDetails] = useState(null);
   const [comments, setComments] = useState([]);
@@ -31,21 +31,29 @@ const VideoPage = ({ getSearchResults }) => {
 
   const refreshComments = async () => {
     try {
-        let response = await axios.get(`http://127.0.0.1:8000/api/comments/videos/${videoId}/`, config);
-        console.log(response)
-        setComments(response.data);
+      let response = await axios.get(
+        `http://127.0.0.1:8000/api/comments/videos/${videoId}/`,
+        config
+      );
+      console.log(response);
+      setComments(response.data);
     } catch (error) {
-        console.log(error.response.data);
+      console.log(error.response.data);
     }
-};
-
+  };
 
   return (
-    <div>
-      <VideoPlayer videoDetails={videoDetails} videoId={videoId} />
-      <CommentForm videoId={videoId} refreshComments={refreshComments} />
-      <CommentList comments={comments} refreshComments={refreshComments} />
-      <RelatedVideos videoId={videoId} />
+    <div className='container-fluid'>
+      <div classname ='col-md-6'>  
+
+        <div>
+          <VideoPlayer videoDetails={videoDetails} videoId={videoId} />
+          <CommentForm videoId={videoId} refreshComments={refreshComments} />
+          <CommentList comments={comments} refreshComments={refreshComments} />
+      
+          <RelatedVideos videoId={videoId} />
+      </div>
+    </div>
     </div>
   );
 };
