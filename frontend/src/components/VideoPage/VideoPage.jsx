@@ -25,6 +25,7 @@ const VideoPage = ({ getSearchResults }) => {
       }
     };
     fetchVideoDetails();
+    window.scrollTo(0, 0);
   }, [videoId]);
 
   const refreshComments = async () => {
