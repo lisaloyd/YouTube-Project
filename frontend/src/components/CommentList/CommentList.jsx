@@ -6,8 +6,8 @@ const CommentList = ({ comments, refreshComments }) => {
     refreshComments();
   }, []);
   return (
-    <div>
-      
+    <div className="commentList">
+        <h3>Comments</h3>
       <div>
         {comments.map((comment) => (
           <Comment comment={comment} refreshComments={refreshComments} />

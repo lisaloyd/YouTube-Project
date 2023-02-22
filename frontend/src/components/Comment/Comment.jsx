@@ -29,7 +29,7 @@ const Comment = ({ comment, refreshComments }) => {
   return (
     <div className="comment" key={comment.id}>
       <div>
-        <h2>User: {comment.username}</h2>
+        <h3>User: {comment.username}</h3>
         <p>{comment.text}</p>
       </div>
       <div>
