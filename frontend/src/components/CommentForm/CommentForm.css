@@ -22,12 +22,33 @@ input {
     width: 60%;
 }
 
-.video-container {
+.videoContainer {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center
 }
 
 .row {
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 20px;
 }
+
+.row > div {
+    width: 50%;
+}
+
+.video-thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .thumbnail-wrapper {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
 

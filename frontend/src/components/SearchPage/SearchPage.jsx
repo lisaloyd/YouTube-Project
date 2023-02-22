@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import axios from "axios";
 import VideoThumbnail from "../VideoThumbnail/VideoThumbnail";
-import RelatedVideos from "../RelatedVideos/RelatedVideos";
+import "./SearchPage.css";
 
 
 const SearchPage = ({}) => {
@@ -26,9 +25,9 @@ const SearchPage = ({}) => {
   return (
     <div>
       <SearchBar getSearchResults={getSearchResults} />
-      <div>
+      <div className="video-grid" >
         {searchResults.map((video) => (
-       <VideoThumbnail video={video}/>  
+       <VideoThumbnail video={video} />  
         ))}
     
       </div>

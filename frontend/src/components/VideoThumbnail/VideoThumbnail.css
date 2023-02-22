@@ -1,0 +1,30 @@
+.thumbnail-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+  
+  .thumbnail-wrapper {
+    width: 200px;
+    height: 150px;
+    margin-right: 10px;
+  }
+
+  .video-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .video-thumbnail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .video-thumbnail img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }

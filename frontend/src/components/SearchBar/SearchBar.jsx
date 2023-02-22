@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import "./SearchBar.css"
 
 const SearchBar = ({ getSearchResults }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,15 +12,17 @@ const SearchBar = ({ getSearchResults }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Search Bar</label>
-      <input
-        type="search"
-        value={searchTerm}
-        onChange={(event) => setSearchTerm(event.target.value)}
-      />
-      <button to="/my-search">Search</button>
-    </form>
+    <div className="search-bar" >
+      <h2>Search Bar</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="search"
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+        <button to="/my-search">Search</button>
+      </form>
+    </div>
   );
 };
 

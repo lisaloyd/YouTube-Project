@@ -43,8 +43,8 @@ const VideoPage = ({ getSearchResults }) => {
   };
 
   return (
-    <div className='container-fluid'>
-      <div classname ='col-md-6'>  
+    <div >
+      <div >  
 
         <div>
           <VideoPlayer videoDetails={videoDetails} videoId={videoId} />
