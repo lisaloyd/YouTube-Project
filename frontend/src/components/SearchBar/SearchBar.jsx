@@ -20,7 +20,7 @@ const SearchBar = ({ getSearchResults }) => {
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
         />
-        <button to="/my-search">Search</button>
+        <button style={{color: "white"}} to="/my-search">Search</button>
       </form>
     </div>
   );

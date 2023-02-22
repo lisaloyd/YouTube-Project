@@ -4,7 +4,6 @@ import axios from "axios";
 import VideoThumbnail from "../VideoThumbnail/VideoThumbnail";
 import "./SearchPage.css";
 
-
 const SearchPage = ({}) => {
   const [searchResults, setSearchResults] = useState([]);
 
@@ -25,11 +24,10 @@ const SearchPage = ({}) => {
   return (
     <div>
       <SearchBar getSearchResults={getSearchResults} />
-      <div className="video-grid" >
+      <div className="video-grid">
         {searchResults.map((video) => (
-       <VideoThumbnail video={video} />  
+          <VideoThumbnail video={video} />
         ))}
-    
       </div>
     </div>
   );

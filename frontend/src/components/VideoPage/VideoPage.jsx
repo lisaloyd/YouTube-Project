@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import SearchBar from "../SearchBar/SearchBar";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import RelatedVideos from "../RelatedVideos/RelatedVideos";
-import Comment from "../Comment/Comment";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import useAuth from "../../hooks/useAuth";
 import CommentList from "../CommentList/CommentList";
@@ -43,19 +41,30 @@ const VideoPage = ({ getSearchResults }) => {
   };
 
   return (
-    <div >
-      <div >  
-
-        <div>
-          <VideoPlayer videoDetails={videoDetails} videoId={videoId} />
-          <CommentForm videoId={videoId} refreshComments={refreshComments} />
-          <CommentList comments={comments} refreshComments={refreshComments} />
-      
-          <RelatedVideos videoId={videoId} />
+    <div style={{ display: "flex" }}>
+      <div style={{ width: "70%" }}>
+        <VideoPlayer videoDetails={videoDetails} videoId={videoId} />
+        <CommentForm videoId={videoId} refreshComments={refreshComments} />
+        <CommentList comments={comments} refreshComments={refreshComments} />
       </div>
-    </div>
+      <div style={{ width: "30%" }}>
+        <RelatedVideos videoId={videoId} />
+      </div>
     </div>
   );
 };
 
 export default VideoPage;
+
+{
+  /* <div>
+<div>
+  <div>
+    <VideoPlayer videoDetails={videoDetails} videoId={videoId} />
+    <CommentForm videoId={videoId} refreshComments={refreshComments} />
+    <CommentList comments={comments} refreshComments={refreshComments} />
+    <RelatedVideos videoId={videoId} />
+  </div>
+</div>
+</div> */
+}

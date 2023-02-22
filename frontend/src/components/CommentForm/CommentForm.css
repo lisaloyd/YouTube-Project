@@ -4,6 +4,7 @@
     flex-direction: column;
     padding: 20px;
     width: 75%;
+    color: white;
 }
 
 input {
@@ -14,13 +15,7 @@ input {
     box-sizing: border-box;
   }
 
-.videoPlayer {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    padding: 20px;
-    width: 60%;
-}
+
 
 .videoContainer {
     width: 100%;

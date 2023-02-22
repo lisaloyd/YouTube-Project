@@ -8,7 +8,7 @@ const RelatedVideos = ({ videoId }) => {
   useEffect(() => {
     async function getRelatedVideos(videoId) {
       const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&part=snippet&type=video&key=AIzaSyCxR-udMwvEmNfNnwRI1bfBWJODitlVfyk`
+        `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&part=snippet&type=video&key=AIzaSyBzF8sWvnsEDSNDOhZYXREehA2ZsrKa_JI`
       );
       console.log(response.data.items);
       setRelatedVideos(
@@ -24,10 +24,10 @@ const RelatedVideos = ({ videoId }) => {
 
   return (
     <div>
-      <h3>Related Videos</h3>
-      <div className="thumbnail-container">
+      <h3 style={{color: "white"}}>Related Videos</h3>
+      <div >
         {relatedVideos.map((video, index) => (
-          <div key={index} className="thumbnail-wrapper">
+          <div key={index} >
             <VideoThumbnail video={video} />
           </div>
         ))}
@@ -38,14 +38,4 @@ const RelatedVideos = ({ videoId }) => {
 
 export default RelatedVideos;
 
-{
-  /* <div>
-<h3>Related Videos</h3>
-{relatedVideos.map((video, index) => (
-    <div key={index}>
-    <VideoThumbnail video={video}/>
-    
-    </div>
-))}
-</div> */
-}
+
